@@ -11,6 +11,7 @@ app:
     logging:
       enable: true
       url-patterns: "/users/*,/posts/*"
+      requestIdParamName: reqId
 server:
   port: 8080
 logging:

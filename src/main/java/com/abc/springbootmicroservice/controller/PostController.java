@@ -16,7 +16,6 @@ import com.abc.springbootmicroservice.model.Post;
 import com.abc.springbootmicroservice.service.PostService;
 
 @RestController
-
 @RequestMapping("/posts")
 public class PostController {
 
