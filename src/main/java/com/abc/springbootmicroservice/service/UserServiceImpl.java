@@ -1,5 +1,6 @@
 package com.abc.springbootmicroservice.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,8 +11,11 @@ import com.abc.springbootmicroservice.model.User;
 @Service
 public class UserServiceImpl implements UserService {
 
-	List<User> users = Arrays.asList(new User[] { new User(1, "Leanne Graham", 22), new User(2, "Ervin Howell", 28),
-			new User(3, "Clementine Bauch", 32) });
+	private List<User> users = new ArrayList<>(Arrays.asList(new User[] { 
+			new User(1, "Leanne Graham", 22, "1986-08-22"), 
+			new User(2, "Ervin Howell", 28, "1986-08-22"),
+			new User(3, "Clementine Bauch", 32, "1986-08-22") 
+		}));
 
 	@Override
 	public List<User> getAllUsers() {
@@ -25,7 +29,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User createUser(User user) {
+		System.out.println("createUser " +  user);
 		users.add(user);
+		System.out.println("created User " + users);
 		return user;
 	}
 

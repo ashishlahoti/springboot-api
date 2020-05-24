@@ -23,27 +23,29 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping
-	public List<User> getAllUsers() {
-		return userService.getAllUsers();
+	public ResponseEntity<List<User>> getAllUsers() {
+		return ResponseEntity.ok(userService.getAllUsers());
 	}
 
 	@GetMapping("/{id}")
-	public User getUserById(@PathVariable Long id) {
-		return userService.getUserById(id);
+	public ResponseEntity<User> getUserById(@PathVariable Long id) {
+		return ResponseEntity.ok(userService.getUserById(id));
 	}
 
 	@PostMapping
-	public User createUser(User user) {
-		return userService.createUser(user);
+	public ResponseEntity<Void> createUser(User user) {
+		userService.createUser(user);
+		return ResponseEntity.ok().build();
 	}
 
 	@PutMapping("/{id}")
-	public User updateUser(@PathVariable Long id, User user) {
-		return userService.updateUser(id, user);
+	public ResponseEntity<Void> updateUser(@PathVariable Long id, User user) {
+		userService.updateUser(id, user);
+		return ResponseEntity.ok().build();
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteUserById(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
 		userService.deleteUserById(id);
 		return ResponseEntity.ok().build();
 	}

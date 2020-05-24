@@ -1,7 +1,7 @@
 package com.abc.springbootmicroservice.config;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.annotation.PostConstruct;
 
@@ -24,21 +24,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
 	private String version;
-	
 	private String title;
-	
 	private String description;
-	
 	private String basePackage;
-	
 	private String contactName;
-	
 	private String contactEmail;
-	
-	@PostConstruct
-	public void init() {
-		System.out.println(basePackage);
-	}
 	
 	@Bean
 	public Docket api() {
@@ -47,8 +37,8 @@ public class SwaggerConfig {
 			.apis(RequestHandlerSelectors.basePackage(basePackage))
 			.paths(PathSelectors.any())
 			.build()
-			.directModelSubstitute(LocalDate.class, String.class)
-			.directModelSubstitute(Timestamp.class, String.class)
+			.directModelSubstitute(LocalDate.class, java.sql.Date.class)
+			.directModelSubstitute(LocalDateTime.class, java.util.Date.class)
 			.apiInfo(apiInfo());
 	}
 	
@@ -107,5 +97,10 @@ public class SwaggerConfig {
 
 	public void setContactEmail(String contactEmail) {
 		this.contactEmail = contactEmail;
+	}
+	
+	@PostConstruct
+	public void init() {
+		System.out.println(basePackage);
 	}
 }

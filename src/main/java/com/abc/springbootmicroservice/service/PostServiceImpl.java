@@ -1,5 +1,6 @@
 package com.abc.springbootmicroservice.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,10 +11,11 @@ import com.abc.springbootmicroservice.model.Post;
 @Service
 public class PostServiceImpl implements PostService {
 
-	private List<Post> posts = Arrays
-			.asList(new Post[] { new Post("spring", "Spring Boot", "All about Spring boot microservice"),
-					new Post("java", "Java", "Learn Streams in Java"),
-					new Post("javascript", "JavaScript", "Whats new in ES6") });
+	private List<Post> posts = new ArrayList<>(Arrays.asList(new Post[] { 
+			new Post("spring", "Spring Boot", "All about Spring boot microservice"),
+			new Post("java", "Java", "Learn Streams in Java"),
+			new Post("javascript", "JavaScript", "Whats new in ES6") 
+		}));
 
 	@Override
 	public List<Post> getAllPosts() {
