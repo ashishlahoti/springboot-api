@@ -1,21 +1,21 @@
-package com.abc.springbootmicroservice.model;
+package com.example.api.model;
 
 import java.time.LocalDate;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class User {
 
-	public User(long id, String name, int age, String dob) {
+	public User(long id, String name, String dob) {
 		this.id = id;
 		this.name = name;
-		this.age = age;
 		this.dateOfBirth = LocalDate.parse(dob);
 	}
 	
+	@ApiModelProperty(hidden = true)
 	private Long id;
 	
 	private String name;
-	
-	private Integer age;
 	
 	private LocalDate dateOfBirth;
 
@@ -35,13 +35,6 @@ public class User {
 		this.name = name;
 	}
 
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(Integer age) {
-		this.age = age;
-	}
 	
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
@@ -53,7 +46,7 @@ public class User {
 	
 	@Override
 	public String toString() {		
-		return this.id + " " + this.name + " " + this.age;
+		return this.id + " " + this.name;
 	}
 	
 }

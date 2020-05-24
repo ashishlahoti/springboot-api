@@ -1,19 +1,20 @@
-package com.abc.springbootmicroservice.controller;
+package com.example.api.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abc.springbootmicroservice.model.Post;
-import com.abc.springbootmicroservice.service.PostService;
+import com.example.api.model.Post;
+import com.example.api.service.PostService;
 
 @RestController
 @RequestMapping("/posts")
@@ -23,30 +24,30 @@ public class PostController {
 	private PostService postService;
 
 	@GetMapping
-	public ResponseEntity<List<Post>> getAllPosts() {
-		return ResponseEntity.ok(postService.getAllPosts());
+	public List<Post> getAllPosts() {
+		return postService.getAllPosts();
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Post> getPostById(@PathVariable String id) {
-		return ResponseEntity.ok(postService.getPostById(id));
+	public Post getPostById(@PathVariable String id) {
+		return postService.getPostById(id);
 	}
 
 	@PostMapping
-	public ResponseEntity<Void> addPost(Post post) {
-		postService.addPost(post);
-		return ResponseEntity.ok().build();
+	@ResponseStatus(HttpStatus.CREATED)
+	public Long addPost(Post post) {
+		return postService.addPost(post);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Void> updatePost(@PathVariable String id, Post post) {
+	@ResponseStatus(HttpStatus.OK)
+	public void updatePost(@PathVariable String id, Post post) {
 		postService.updatePost(id, post);
-		return ResponseEntity.ok().build();		
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deletePost(@PathVariable String id) {
+	@ResponseStatus(HttpStatus.OK)
+	public void deletePost(@PathVariable String id) {
 		postService.deletePost(id);
-		return ResponseEntity.ok().build();
 	}
 }

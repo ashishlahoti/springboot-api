@@ -1,11 +1,11 @@
 #APP SPECIFIC CUSTOM PROPERTIES
 app:
-  name: spring boot application
+  name: spring boot api application
   api:
     title: Spring Boot APIs
     version: 1.0.0
     description: Spring Boot APIs description
-    base-package: com.abc.springbootmicroservice
+    base-package: com.example.api
     contact-name: apisupportgroup
     contact-email: apisupportgroup@abc.com
     logging:

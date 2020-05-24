@@ -1,4 +1,4 @@
-package com.abc.springbootmicroservice.config;
+package com.example.api.config;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -8,11 +8,11 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.abc</groupId>
-	<artifactId>springboot-microservice</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-microservice</name>
-	<description>Spring Boot Microservice Example</description>
+	<name>springboot-api</name>
+	<description>Build RESTFul APIs with Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>

@@ -1,4 +1,4 @@
-package com.abc.springbootmicroservice.model;
+package com.example.api.model;
 
 public class Post {
 	

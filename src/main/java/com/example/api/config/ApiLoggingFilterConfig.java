@@ -1,4 +1,4 @@
-package com.abc.springbootmicroservice.config;
+package com.example.api.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
