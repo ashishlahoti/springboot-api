@@ -1,22 +1,32 @@
 package com.example.api.model;
 
 public class Post {
-	
-	public Post(String id, String title, String body) {
+
+	public Post(Long userId, Long id, String title, String body) {
+		this.userId = userId;
 		this.id = id;
 		this.title = title;
 		this.body = body;
 	}
 
-	private String id;
+	private Long userId;
+	private Long id;
 	private String title;
 	private String body;
 
-	public String getId() {
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

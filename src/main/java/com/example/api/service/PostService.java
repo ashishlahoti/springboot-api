@@ -8,11 +8,13 @@ public interface PostService {
 
 	public List<Post> getAllPosts();
 
-	public Post getPostById(String id);
+	public Post getPostById(Long id);
+	
+	public List<Post> getAllPostsByUserId(Long userId);
 
 	public Long addPost(Post Post);
 
-	public void updatePost(String id, Post Post);
+	public void updatePost(Long id, Post Post);
 
-	public void deletePost(String id);
+	public void deletePost(Long id);
 }

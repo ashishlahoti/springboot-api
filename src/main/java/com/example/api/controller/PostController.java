@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,8 +30,13 @@ public class PostController {
 	}
 
 	@GetMapping("/{id}")
-	public Post getPostById(@PathVariable String id) {
+	public Post getPostById(@PathVariable Long id) {
 		return postService.getPostById(id);
+	}
+
+	@GetMapping(params = "userId")
+	public List<Post> getAllPostsByUserId(@RequestParam Long userId) {
+		return postService.getAllPostsByUserId(userId);
 	}
 
 	@PostMapping
@@ -41,13 +47,13 @@ public class PostController {
 
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public void updatePost(@PathVariable String id, Post post) {
+	public void updatePost(@PathVariable Long id, Post post) {
 		postService.updatePost(id, post);
 	}
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public void deletePost(@PathVariable String id) {
+	public void deletePost(@PathVariable Long id) {
 		postService.deletePost(id);
 	}
 }
