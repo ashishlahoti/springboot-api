@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.api.model.Comment;
 
-@FeignClient(value = "commentFeignClient", url = "https://jsonplaceholder.typicode.com/")
+@FeignClient(name = "commentFeignClient", url = "https://jsonplaceholder.typicode.com/")
 public interface CommentFeignClient {
 
 	@GetMapping("/comments")
