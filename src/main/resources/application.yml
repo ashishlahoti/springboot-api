@@ -28,3 +28,12 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: FULL
+spring:
+  jackson:  
+    date-format: "dd-MM-yyyy hh:mm:ss"
+    serialization:
+      INDENT_OUTPUT: true
+      FAIL_ON_EMPTY_BEANS: false
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
