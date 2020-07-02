@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Long createUser(User user) {
 		Long id = Long.valueOf(this.userList.size() + 1);
+		user.setId(id);
 		userList.add(user);
 		return id;
 	}

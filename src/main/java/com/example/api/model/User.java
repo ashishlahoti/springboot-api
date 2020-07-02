@@ -12,6 +12,8 @@ public class User {
 		this.dateOfBirth = LocalDate.parse(dob);
 	}
 	
+	public User() {}
+	
 	@ApiModelProperty(hidden = true)
 	private Long id;
 	
@@ -35,7 +37,6 @@ public class User {
 		this.name = name;
 	}
 
-	
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
