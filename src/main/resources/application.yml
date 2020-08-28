@@ -12,6 +12,8 @@ app:
       enable: true
       url-patterns: "/users/*,/posts/*"
       requestIdParamName: reqId
+    swagger:
+      enable: false
 server:
   port: 8080
 logging:
@@ -37,3 +39,4 @@ spring:
       WRITE_DATES_AS_TIMESTAMPS: false
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: false
+      FAIL_ON_IGNORED_PROPERTIES: false

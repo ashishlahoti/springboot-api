@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @ConfigurationProperties("app.api")
+@ConditionalOnProperty(name="app.api.swagger.enable", havingValue = "true", matchIfMissing = false)
 public class SwaggerConfig {
 
 	private String version;

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -19,6 +20,7 @@ public class User {
 	public User() {}
 	
 	@ApiModelProperty(hidden = true)
+	@JsonIgnore
 	private Long id;
 	
 	private String name;
