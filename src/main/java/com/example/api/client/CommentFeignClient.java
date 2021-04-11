@@ -1,23 +1,29 @@
 package com.example.api.client;
 
+import com.example.api.model.Comment;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.example.api.model.Comment;
-
-@FeignClient(name = "commentFeignClient", url = "https://jsonplaceholder.typicode.com/")
+@FeignClient(name = "commentFeignClient", url = "https://jsonplaceholder.typicode.com/comments")
 public interface CommentFeignClient {
 
-	@GetMapping("/comments")
+    @GetMapping
     List<Comment> getAllComments();
- 
-    @GetMapping("/comments/{commentId}")
+
+    @GetMapping("/{commentId}")
     Comment getCommentById(@PathVariable Long commentId);
-    
-    @GetMapping("/comments")
+
+    @GetMapping
     List<Comment> getCommentsByPostId(@RequestParam Long postId);
+
+    @PostMapping
+    Comment createComment(Comment comment);
+
+    @PutMapping
+    Comment updateComment(Comment comment);
+
+    @DeleteMapping("/{commentId}")
+    Comment deleteComment(@PathVariable Long commentId);
 }

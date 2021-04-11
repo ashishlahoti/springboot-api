@@ -1,37 +1,45 @@
 package com.example.api.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.api.model.Comment;
 import com.example.api.service.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/comments")
 public class CommentController {
 
-	@Autowired
-	private CommentService commentService;
+    @Autowired
+    private CommentService commentService;
 
-	@GetMapping
-	public List<Comment> getAllComments() {
-		return commentService.getAllComments();
-	}
-	
-	@GetMapping(params = "postId")
-	public List<Comment> getAllCommentsByUserId(@RequestParam Long postId) {
-		return commentService.getAllCommentsByPostId(postId);
-	}
+    @GetMapping
+    public List<Comment> getAllComments() {
+        return commentService.getAllComments();
+    }
 
-	@GetMapping("/{id}")
-	public Comment getCommentById(@PathVariable Long id) {
-		return commentService.getCommentById(id);
-	}
-	
+    @GetMapping("/{commentId}")
+    public Comment getCommentById(@PathVariable Long commentId) {
+        return commentService.getCommentById(commentId);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Comment createComment(Comment comment) {
+        return commentService.createComment(comment);
+    }
+
+    @PutMapping("/{commentId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateComment(@PathVariable Long commentId, Comment comment) {
+        commentService.updateComment(commentId, comment);
+    }
+
+    @DeleteMapping("/{commentId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteComment(@PathVariable Long commentId) {
+        commentService.deleteComment(commentId);
+    }
 }

@@ -6,15 +6,15 @@ import com.example.api.model.Post;
 
 public interface PostService {
 
-	public List<Post> getAllPosts();
+	List<Post> getAllPosts();
 
-	public Post getPostById(Long id);
+	Post getPostById(Long postId);
 	
-	public List<Post> getAllPostsByUserId(Long userId);
+	List<Post> getAllPostsByUserId(Long userId);
 
-	public Long addPost(Post Post);
+	Post createPost(Post post);
 
-	public void updatePost(Long id, Post Post);
+	void updatePost(Long postId, Post post);
 
-	public void deletePost(Long id);
+	void deletePost(Long postId);
 }

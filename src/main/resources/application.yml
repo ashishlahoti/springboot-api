@@ -13,7 +13,7 @@ app:
       url-patterns: "/users/*,/posts/*"
       requestIdParamName: reqId
     swagger:
-      enable: false
+      enable: true
 server:
   port: 8080
 logging:

@@ -3,13 +3,20 @@ package com.example.api.service;
 import java.util.List;
 
 import com.example.api.model.Comment;
+import com.example.api.model.Post;
 
 public interface CommentService {
 
-	public List<Comment> getAllComments();
+    List<Comment> getAllComments();
 
-	public Comment getCommentById(Long id);
+    Comment getCommentById(Long id);
 
-	public List<Comment> getAllCommentsByPostId(Long postId);
+    List<Comment> getAllCommentsByPostId(Long commentId);
+
+    Comment createComment(Comment comment);
+
+    void updateComment(Long commentId, Comment comment);
+
+    void deleteComment(Long commentId);
 
 }
