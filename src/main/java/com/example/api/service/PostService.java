@@ -2,6 +2,7 @@ package com.example.api.service;
 
 import java.util.List;
 
+import com.example.api.model.CreatePostInput;
 import com.example.api.model.Post;
 
 public interface PostService {
@@ -12,7 +13,7 @@ public interface PostService {
 	
 	List<Post> getAllPostsByUserId(Long userId);
 
-	Post createPost(Post post);
+	Post createPost(CreatePostInput post);
 
 	void updatePost(Long postId, Post post);
 

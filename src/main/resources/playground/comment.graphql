@@ -1,0 +1,26 @@
+query GET_ALL_COMMENTS {
+    comments {
+        id
+        name
+        email
+        body
+        postId
+    }
+}
+
+query GET_COMMENT_BY_ID($commentId: ID) {
+    commentById(id: $commentId) {
+        name
+        email
+        body
+        postId
+    }
+}
+
+query GET_COMMENT_BY_POST_ID($postId: ID) {
+    commentByPostId(postId: $postId) {
+        name
+        email
+        body
+    }
+}

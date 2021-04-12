@@ -1,5 +1,6 @@
 package com.example.api.client;
 
+import com.example.api.model.CreatePostInput;
 import com.example.api.model.Post;
 
 import java.util.Collections;
@@ -22,7 +23,7 @@ public class PostFeignClientFallback implements PostFeignClient{
     }
 
     @Override
-    public Post createPost(Post post) {
+    public Post createPost(CreatePostInput post) {
         return null;
     }
 

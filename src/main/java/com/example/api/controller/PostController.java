@@ -4,6 +4,7 @@ import com.example.api.model.Comment;
 import com.example.api.model.Post;
 import com.example.api.service.CommentService;
 import com.example.api.service.PostService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +13,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
+@RequiredArgsConstructor
 public class PostController {
 
-    @Autowired
-    private PostService postService;
-
-    @Autowired
-    private CommentService commentService;
+    private final PostService postService;
+    private final CommentService commentService;
 
     @GetMapping
     public List<Post> getAllPosts() {

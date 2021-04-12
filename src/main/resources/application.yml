@@ -42,3 +42,23 @@ spring:
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: false
       FAIL_ON_IGNORED_PROPERTIES: false
+
+graphql:
+  servlet:
+    max-query-depth: 20
+    exception-handlers-enabled: false
+  playground:
+    headers:
+      Authorization: Basic Token
+    tabs:
+      - name: Post Query
+        query: classpath:playground/post.graphql
+        variables: classpath:playground/post_variables.json
+        headers:
+          Accept: application/json
+      - name: Comment Query
+        query: classpath:playground/comment.graphql
+        variables: classpath:playground/comment_variables.json
+    enabled: true
+voyager:
+  enabled: true

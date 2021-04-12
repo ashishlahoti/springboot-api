@@ -1,17 +1,19 @@
 package com.example.api.service;
 
 import com.example.api.client.PostFeignClient;
+import com.example.api.model.CreatePostInput;
 import com.example.api.model.Post;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
 
-    @Autowired
-    private PostFeignClient postFeignClient;
+    private final PostFeignClient postFeignClient;
 
     @Override
     public List<Post> getAllPosts() {
@@ -29,7 +31,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post createPost(Post post) {
+    public Post createPost(CreatePostInput post) {
         return postFeignClient.createPost(post);
     }
 

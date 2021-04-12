@@ -1,0 +1,3 @@
+type Mutation {
+    createPost(input: CreatePostInput): Post
+}

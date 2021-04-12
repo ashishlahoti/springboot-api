@@ -6,6 +6,7 @@ import com.example.api.model.Users;
 import com.example.api.service.CommentService;
 import com.example.api.service.PostService;
 import com.example.api.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private PostService postService;
+    private final UserService userService;
+    private final PostService postService;
 
     @GetMapping
     public Users getAllUsers() {

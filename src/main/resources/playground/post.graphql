@@ -1,0 +1,45 @@
+query GET_ALL_POSTS {
+    posts {
+        id
+        title
+        body
+    }
+}
+
+query GET_POST_BY_ID($postId: ID) {
+    postById(id: $postId) {
+        title
+        body
+        userId
+    }
+}
+
+query GET_POST_BY_USER_ID($userId: ID) {
+    postByUserId(userId: $userId) {
+        id
+        title
+        body
+    }
+}
+
+query GET_POST_BY_ID_WITH_COMMENTS($postId: ID) {
+    postById(id: $postId) {
+        title
+        body
+        userId
+        comments {
+            name
+            email
+            body
+        }
+    }
+}
+
+mutation CREATE_POST($userId: String, $title: String, $body: String) {
+    createPost(input: { userId: $userId, title: $title, body: $body }) {
+        id
+        title
+        body
+        userId
+    }
+}

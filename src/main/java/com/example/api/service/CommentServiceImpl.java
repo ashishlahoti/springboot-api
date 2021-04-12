@@ -2,16 +2,17 @@ package com.example.api.service;
 
 import com.example.api.client.CommentFeignClient;
 import com.example.api.model.Comment;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {
 
-    @Autowired
-    private CommentFeignClient commentFeignClient;
+    private final CommentFeignClient commentFeignClient;
 
     @Override
     public List<Comment> getAllComments() {
