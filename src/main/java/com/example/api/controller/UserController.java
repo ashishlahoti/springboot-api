@@ -2,16 +2,12 @@ package com.example.api.controller;
 
 import com.example.api.model.Post;
 import com.example.api.model.User;
-import com.example.api.model.Users;
-import com.example.api.service.CommentService;
 import com.example.api.service.PostService;
 import com.example.api.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.stream.events.Comment;
 import java.util.List;
 
 @RestController
@@ -23,7 +19,7 @@ public class UserController {
     private final PostService postService;
 
     @GetMapping
-    public Users getAllUsers() {
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 

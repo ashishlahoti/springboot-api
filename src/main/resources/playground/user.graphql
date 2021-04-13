@@ -1,0 +1,37 @@
+query GET_ALL_USERS {
+    users {
+        id
+        name
+    }
+}
+
+query GET_USER_BY_ID($userId: ID) {
+    userById(id: $userId) {
+        name
+    }
+}
+
+query GET_USER_BY_ID_WITH_POSTS($userId: ID) {
+    userById(id: $userId) {
+        name
+        posts {
+            id
+            title
+        }
+    }
+}
+
+query GET_USER_BY_ID_WITH_POSTS_AND_COMMENTS($userId: ID) {
+    userById(id: $userId) {
+        name
+        posts {
+            id
+            title
+            comments {
+                email
+                name
+                body
+            }
+        }
+    }
+}

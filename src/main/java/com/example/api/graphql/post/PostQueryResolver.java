@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class PostResolver implements GraphQLQueryResolver {
+public class PostQueryResolver implements GraphQLQueryResolver {
 
     private final PostService postService;
 

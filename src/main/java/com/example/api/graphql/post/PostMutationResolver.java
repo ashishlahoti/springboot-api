@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class PostMutation implements GraphQLMutationResolver {
+public class PostMutationResolver implements GraphQLMutationResolver {
 
     private final PostService postService;
 

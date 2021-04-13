@@ -1,0 +1,8 @@
+type User {
+    id: ID!,
+    name: String,
+    dateOfBirth: String,
+    lastLogin: String,
+    zonedDateTime: String,
+    posts: [Post]
+}

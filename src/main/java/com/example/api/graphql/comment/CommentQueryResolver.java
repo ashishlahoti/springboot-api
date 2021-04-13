@@ -13,7 +13,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class CommentResolver implements GraphQLQueryResolver {
+public class CommentQueryResolver implements GraphQLQueryResolver {
 
     private final CommentService commentService;
 

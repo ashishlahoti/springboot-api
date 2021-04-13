@@ -1,5 +1,9 @@
 # All Available Queries
 type Query {
+    # Get All Users
+    users: [User],
+    # Get User by userId
+    userById(id:ID): User,
     # Get All Posts
     posts: [Post],
     # Get Post by postId

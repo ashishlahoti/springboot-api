@@ -1,11 +1,12 @@
 package com.example.api.service;
 
 import com.example.api.model.User;
-import com.example.api.model.Users;
+
+import java.util.List;
 
 public interface UserService {
 
-	public Users getAllUsers();
+	public List<User> getAllUsers();
 
 	public User getUserById(Long id);
 

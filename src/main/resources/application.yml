@@ -51,6 +51,9 @@ graphql:
     headers:
       Authorization: Basic Token
     tabs:
+      - name: User Query
+        query: classpath:playground/user.graphql
+        variables: classpath:playground/user_variables.json
       - name: Post Query
         query: classpath:playground/post.graphql
         variables: classpath:playground/post_variables.json
