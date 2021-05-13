@@ -1,10 +1,8 @@
 package com.example.api.service;
 
 import com.example.api.client.PostFeignClient;
-import com.example.api.model.CreatePostInput;
-import com.example.api.model.Post;
+import com.example.api.domain.Post;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +29,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post createPost(CreatePostInput post) {
+    public Post createPost(Post post) {
         return postFeignClient.createPost(post);
     }
 

@@ -1,21 +1,30 @@
 #APP SPECIFIC CUSTOM PROPERTIES
-app:
-  name: spring boot api application
-  api:
+api:
+  info:
     title: Spring Boot APIs
-    version: 1.0.0
     description: Spring Boot APIs description
-    base-package: com.example.api
-    contact-name: apisupportgroup
-    contact-email: apisupportgroup@abc.com
-    logging:
-      enable: true
-      url-patterns: "/users/*,/posts/*"
-      requestIdParamName: reqId
-    swagger:
-      enable: true
+    version: 1.0.0
+    terms-of-service: http://example.com/terms/
+    contact:
+      name: Example API Team
+      email: apiteam@example.com
+      url: http://example.com/team
+    license:
+      name: Apache 2.0
+      url: http://www.apache.org/licenses/LICENSE-2.0.html
+  logging:
+    enable: true
+    url-patterns: "/users/*,/posts/*"
+    requestIdParamName: CORRELATION_ID
+
+springdoc:
+  swagger-ui:
+    enabled: false
+    path: /   # Redirect localhost:8080 to swagger-ui.html
+
 server:
   port: 8080
+
 logging:
   level:
     root: INFO
@@ -23,6 +32,7 @@ logging:
   pattern:
     #console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
     console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%8.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %X{REQUEST_ID} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+
 feign:
   client:
     config:
@@ -32,6 +42,7 @@ feign:
         loggerLevel: BASIC
       postFeignClient:
         loggerLevel: FULL
+
 spring:
   jackson:  
     date-format: "dd-MM-yyyy hh:mm:ss"
@@ -42,26 +53,3 @@ spring:
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: false
       FAIL_ON_IGNORED_PROPERTIES: false
-
-graphql:
-  servlet:
-    max-query-depth: 20
-    exception-handlers-enabled: false
-  playground:
-    headers:
-      Authorization: Basic Token
-    tabs:
-      - name: User Query
-        query: classpath:playground/user.graphql
-        variables: classpath:playground/user_variables.json
-      - name: Post Query
-        query: classpath:playground/post.graphql
-        variables: classpath:playground/post_variables.json
-        headers:
-          Accept: application/json
-      - name: Comment Query
-        query: classpath:playground/comment.graphql
-        variables: classpath:playground/comment_variables.json
-    enabled: true
-voyager:
-  enabled: true

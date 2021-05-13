@@ -1,18 +1,18 @@
 package com.example.api.service;
 
-import com.example.api.model.User;
+import com.example.api.domain.User;
 
 import java.util.List;
 
 public interface UserService {
 
-	public List<User> getAllUsers();
+    List<User> getAllUsers();
 
-	public User getUserById(Long id);
+    User getUserById(Long id);
 
-	public Long createUser(User user);
+    Long createUser(User user);
 
-	public void updateUser(Long id, User user);
+    void updateUser(Long id, User user);
 
-	public void deleteUserById(Long id);
+    void deleteUserById(Long id);
 }

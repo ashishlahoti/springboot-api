@@ -1,7 +1,7 @@
 package com.example.api.controller;
 
-import com.example.api.model.Post;
-import com.example.api.model.User;
+import com.example.api.domain.Post;
+import com.example.api.domain.User;
 import com.example.api.service.PostService;
 import com.example.api.service.UserService;
 import lombok.RequiredArgsConstructor;

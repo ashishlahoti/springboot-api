@@ -1,9 +1,8 @@
 package com.example.api.service;
 
 import com.example.api.client.CommentFeignClient;
-import com.example.api.model.Comment;
+import com.example.api.domain.Comment;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

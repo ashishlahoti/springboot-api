@@ -1,8 +1,7 @@
 package com.example.api.client;
 
 import com.example.api.config.FeignClientConfig;
-import com.example.api.model.CreatePostInput;
-import com.example.api.model.Post;
+import com.example.api.domain.Post;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +22,7 @@ public interface PostFeignClient {
     List<Post> getPostByUserId(@RequestParam Long userId);
 
     @PostMapping("/posts")
-    Post createPost(CreatePostInput post);
+    Post createPost(Post post);
 
     @PutMapping("/posts")
     Post updatePost(Post post);

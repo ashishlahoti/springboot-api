@@ -1,11 +1,10 @@
 package com.example.api.controller;
 
-import com.example.api.model.Comment;
-import com.example.api.model.Post;
+import com.example.api.domain.Comment;
+import com.example.api.domain.Post;
 import com.example.api.service.CommentService;
 import com.example.api.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

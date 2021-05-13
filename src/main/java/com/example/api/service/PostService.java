@@ -1,9 +1,8 @@
 package com.example.api.service;
 
-import java.util.List;
+import com.example.api.domain.Post;
 
-import com.example.api.model.CreatePostInput;
-import com.example.api.model.Post;
+import java.util.List;
 
 public interface PostService {
 
@@ -13,7 +12,7 @@ public interface PostService {
 	
 	List<Post> getAllPostsByUserId(Long userId);
 
-	Post createPost(CreatePostInput post);
+	Post createPost(Post post);
 
 	void updatePost(Long postId, Post post);
 

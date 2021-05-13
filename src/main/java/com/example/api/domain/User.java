@@ -1,4 +1,4 @@
-package com.example.api.model;
+package com.example.api.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,7 +7,6 @@ import java.time.ZonedDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
@@ -18,8 +17,7 @@ public class User {
 		this.name = name;
 		this.dateOfBirth = LocalDate.parse(dob);
 	}
-	
-	@ApiModelProperty(hidden = true)
+
 	@JsonIgnore
 	private Long id;
 	

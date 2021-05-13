@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 @ConditionalOnExpression("${app.api.logging.enable:true}")
 public class ApiLoggingFilterConfig {
 
-	@Value("${app.api.logging.url-patterns}")
+	@Value("${api.logging.url-patterns}")
 	private String[] urlPatterns;
 	
-	@Value("${app.api.logging.requestIdParamName:requestId}")
+	@Value("${api.logging.requestIdParamName:requestId}")
 	private String requestIdParamName;
 	
-	@Value("${app.api.logging.requestIdMDCParamName:REQUEST_ID}")
+	@Value("${api.logging.requestIdMDCParamName:REQUEST_ID}")
 	private String requestIdMDCParamName;
 	
 	@Bean
